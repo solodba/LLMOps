@@ -28,5 +28,12 @@
 ![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/7.png)  
 ![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/8.png)   
 ```
-
+和上面图形界面修改一样的密码
+root@autodl-container-0e1541aaed-4c54cc69:~# passwd root
+New password: 
+Retype new password: 
+passwd: password updated successfully
+root@autodl-container-0e1541aaed-4c54cc69:~# 
+root@autodl-container-0e1541aaed-4c54cc69:~# 
 ```
+
