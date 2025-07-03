@@ -221,3 +221,10 @@ Thu Jul  3 14:35:29 2025
 |    0   N/A  N/A            9518      C   ...utodl-tmp/vllm/bin/python3.11      22662MiB |
 +-----------------------------------------------------------------------------------------+
 ```
+
+##### 5. 安装open-webui
+```
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/open-webui
+(/root/autodl-tmp/open-webui) root@autodl-container-0e1541aaed-4c54cc69:~# pip install open-webui[all]
+
+```
