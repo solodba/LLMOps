@@ -1,4 +1,4 @@
-### 一、使用vLLM部署deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+### 部署deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
 > 由于本人电脑显卡显存偏低，所以在AutoDL算力云上购买1台服务器即可。
 > 购买地址: https://autodl.com/home   
 
@@ -43,12 +43,12 @@ root@autodl-container-0e1541aaed-4c54cc69:~#
 这样就可以使用mobaxterm、securecrt等其他登录软件登录了。
 ```
 
-#### 1. conda安装python虚拟环境
+#### 1. conda安装python虚拟环境(分别对应管理vllm, sglang, open-webui)
 ```
 # 安装python 3.11的虚拟环境vllm, 主要负责运行和管理vllm
 root@autodl-container-0e1541aaed-4c54cc69:~# conda --version
 conda 22.11.1
-root@autodl-container-0e1541aaed-4c54cc69:~# 
+
 root@autodl-container-0e1541aaed-4c54cc69:~# df -h
 Filesystem      Size  Used Avail Use% Mounted on
 overlay          30G   54M   30G   1% /
@@ -64,16 +64,20 @@ tmpfs           378G     0  378G   0% /proc/acpi
 tmpfs           378G     0  378G   0% /proc/scsi
 tmpfs           378G     0  378G   0% /sys/firmware
 tmpfs           378G     0  378G   0% /sys/devices/virtual/powercap
-root@autodl-container-0e1541aaed-4c54cc69:~# 
+
+# 安装python 3.11的虚拟环境vllm, 主要负责运行和管理vllm
 root@autodl-container-0e1541aaed-4c54cc69:~# conda create -p /root/autodl-tmp/vllm python=3.11
+
+# 安装python 3.11的虚拟环境sglang, 主要负责运行和管理sglang
+root@autodl-container-0e1541aaed-4c54cc69:~# conda create -p /root/autodl-tmp/sglang python=3.11
 
 # 安装python 3.11的虚拟环境open-webui, 主要负责运行和管理open-webui
 root@autodl-container-0e1541aaed-4c54cc69:~# conda create -p /root/autodl-tmp/open-webui python=3.11
 
-# 查看和确认安装的两个python虚拟环境
+# 查看和确认安装的三个python虚拟环境
 root@autodl-container-0e1541aaed-4c54cc69:~# cd /root/autodl-tmp/
 root@autodl-container-0e1541aaed-4c54cc69:~/autodl-tmp# ls
-open-webui  vllm
+open-webui  vllm  sglang
 root@autodl-container-0e1541aaed-4c54cc69:~/autodl-tmp# 
 
 # conda初始化bash
@@ -94,6 +98,7 @@ modified      /root/.bashrc
 
 ==> For changes to take effect, close and re-open your current shell. <==
 
+# 重新加载bash
 root@autodl-container-0e1541aaed-4c54cc69:~# exec bash
 +-----------------------------------------------AutoDL-----------------------------------------------------+
 目录说明:
@@ -114,11 +119,11 @@ GPU ：NVIDIA GeForce RTX 3090, 1
 1.系统盘较小请将大的数据存放于数据盘或文件存储中，重置系统时数据盘和文件存储中的数据不受影响
 2.清理系统盘请参考：https://www.autodl.com/docs/qa1/
 3.终端中长期执行命令请使用screen等工具开后台运行，确保程序不受SSH连接中断影响：https://www.autodl.com/docs/daemon/
-(base) root@autodl-container-0e1541aaed-4c54cc69:~# 
 ```
 
-#### 2. pip安装vllm推理引擎
+#### 2. pip安装vllm、sglang推理引擎
 ```
+# 安装vllm推理引擎
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
 (/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# 
 (/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list
@@ -132,6 +137,18 @@ wheel      0.45.1
 modelscope                               1.27.1
 (/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list | grep vllm
 vllm                                     0.9.1
+
+# 安装sglang推理引擎
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# 
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list
+Package    Version
+---------- -------
+pip        25.1
+setuptools 78.1.1
+wheel      0.45.1
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip install sglang[all]
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list | grep sglang
 ```
 
 #### 3. 下载并启动deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
@@ -157,9 +174,13 @@ source /etc/network_turbo
 export HF_HOME=/root/autodl-tmp/hf_cache
 # 设置modelscope下载文件的存放位置，不用创建目录，会自动创建
 export MODELSCOPE_CACHE=/root/autodl-tmp/ms_cache
+
+# 重新加载bash
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# exec bash
+
+# 通过vllm推理引擎加载启动大模型
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
-(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# VLLM_USE_MODELSCOPE=true vllm serve deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --tensor-parallel-size 1 --max-model-len 32768 --api-key vllm-codehorse --served-model-name vllm-deepseek-1.5 --host 0.0.0.0 --port 8000
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# VLLM_USE_MODELSCOPE=true vllm serve deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --tensor-parallel-size 1 --max-model-len 32768 --api-key vllm-codehorse --served-model-name vllm-deepseek-8B --host 0.0.0.0 --port 8000
 
 # 注释
 --tensor-parallel-size	张量并行组的数量, 和显卡个数有关
@@ -194,7 +215,20 @@ ERROR 07-03 14:17:08 [core.py:515] ValueError: To serve at least one request wit
 当max-model-len设置为32768时，启动起来就需要4.5G的KV缓存，大于可用缓存4.47G了，所以需要把max-model-len调小，程序预测值为32560
 
 # 重新启动大模型
-(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# VLLM_USE_MODELSCOPE=true vllm serve deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --tensor-parallel-size 1 --max-model-len 32560 --api-key vllm-codehorse --served-model-name vllm-deepseek-1.5 --host 0.0.0.0 --port 8000
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# VLLM_USE_MODELSCOPE=true vllm serve deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --tensor-parallel-size 1 --max-model-len 32560 --api-key vllm-codehorse --served-model-name vllm-deepseek-8B --host 0.0.0.0 --port 8000
+
+# 通过sglang推理引擎加载启动大模型
+SGLANG_USE_MODELSCOPE=true python3 -m sglang.launch_server --model deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --trust-remote-code --tp 1 --api-key sglang-codehorse --served-model-name sglang-deepseek-8B --max-model-len 32560 --host 0.0.0.0 --port 8000
+
+# 注释
+--trust-remote-code: 是否信任远程代码，默认为False。这涉及到安全性和潜在风险。
+--tp 张量并行组的数量, 和显卡个数有关
+--max-model-len 模型上下文长度，如未指定，会从模型配置自动推导
+--api-key 如果提供，服务器将要求在请求头中提供此密钥
+--served-model-name API中使用的模型名称，可提供多个名称
+--host 主机名
+--port 端口号，默认为 8000
 
 # 基本发现显卡快被占满
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# nvidia-smi
@@ -220,9 +254,10 @@ Thu Jul  3 14:35:29 2025
 +-----------------------------------------------------------------------------------------+
 ```
 
+
 #### 4. 安装open-webui
 ```
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/open-webui
-(/root/autodl-tmp/open-webui) root@autodl-container-0e1541aaed-4c54cc69:~# pip install open-webui[all]
+(/root/autodl-tmp/open-webui) root@autodl-container-0e1541aaed-4c54cc69:~# pip install open-webui
 
 ```
