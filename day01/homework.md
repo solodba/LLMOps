@@ -197,4 +197,27 @@ ERROR 07-03 14:17:08 [core.py:515] ValueError: To serve at least one request wit
 
 # 重新启动大模型
 (/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# VLLM_USE_MODELSCOPE=true vllm serve deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --tensor-parallel-size 1 --max-model-len 32560 --api-key vllm-codehorse --served-model-name vllm-deepseek-1.5 --host 0.0.0.0 --port 8000
+
+# 基本发现显卡快被占满
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# nvidia-smi
+Thu Jul  3 14:35:29 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.124.04             Driver Version: 570.124.04     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        On  |   00000000:D5:00.0 Off |                  N/A |
+| 30%   29C    P8             20W /  350W |   22671MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            9518      C   ...utodl-tmp/vllm/bin/python3.11      22662MiB |
++-----------------------------------------------------------------------------------------+
 ```
