@@ -139,16 +139,16 @@ modelscope                               1.27.1
 vllm                                     0.9.1
 
 # 安装sglang推理引擎
-(base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
-(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# 
-(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/sglang
+(/root/autodl-tmp/sglang) root@autodl-container-712c49b73d-1e21b1db:~# pip list
 Package    Version
 ---------- -------
 pip        25.1
 setuptools 78.1.1
 wheel      0.45.1
-(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip install sglang[all]
-(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list | grep sglang
+(/root/autodl-tmp/sglang) root@autodl-container-0e1541aaed-4c54cc69:~# pip install sglang[all]
+(/root/autodl-tmp/sglang) root@autodl-container-0e1541aaed-4c54cc69:~# pip list | grep sglang
+sglang                    0.4.8.post1
 ```
 
 #### 3. 下载并启动deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
@@ -218,13 +218,13 @@ ERROR 07-03 14:17:08 [core.py:515] ValueError: To serve at least one request wit
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
 (/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# VLLM_USE_MODELSCOPE=true vllm serve deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --tensor-parallel-size 1 --max-model-len 32560 --api-key vllm-codehorse --served-model-name vllm-deepseek-8B --host 0.0.0.0 --port 8000
 
-# 通过sglang推理引擎加载启动大模型
-SGLANG_USE_MODELSCOPE=true python3 -m sglang.launch_server --model deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --trust-remote-code --tp 1 --api-key sglang-codehorse --served-model-name sglang-deepseek-8B --max-model-len 32560 --host 0.0.0.0 --port 8000
+# 通过sglang推理引擎加载启动大模型(由于前面大模型文件已经下载, 所以就不用再次下载)
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/sglang
+(/root/autodl-tmp/sglang) root@autodl-container-0e1541aaed-4c54cc69:~# SGLANG_USE_MODELSCOPE=true python3 -m sglang.launch_server --model deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --trust-remote-code --tp 1 --api-key sglang-codehorse --served-model-name sglang-deepseek-8B --host 0.0.0.0 --port 8000
 
 # 注释
 --trust-remote-code: 是否信任远程代码，默认为False。这涉及到安全性和潜在风险。
 --tp 张量并行组的数量, 和显卡个数有关
---max-model-len 模型上下文长度，如未指定，会从模型配置自动推导
 --api-key 如果提供，服务器将要求在请求头中提供此密钥
 --served-model-name API中使用的模型名称，可提供多个名称
 --host 主机名
@@ -257,7 +257,28 @@ Thu Jul  3 14:35:29 2025
 
 #### 4. 安装open-webui
 ```
+# 安装open-webui
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/open-webui
 (/root/autodl-tmp/open-webui) root@autodl-container-0e1541aaed-4c54cc69:~# pip install open-webui
+(/root/autodl-tmp/open-webui) root@autodl-container-0e1541aaed-4c54cc69:~# pip list | grep open-webui
+open-webui                               0.6.15
 
-```
+# 启动open-webui
+(/root/autodl-tmp/open-webui) root@aautodl-container-0e1541aaed-4c54cc69:~# open-webui serve --port 8001
+
+# 打开本地windows电脑的powershell终端, 对8001进行端口映射到本地端口8001
+ssh -CNg -L 6006:127.0.0.1:6006 root@connect.cqa1.seetacloud.com -p 47898
+```  
+>open-webui配置  
+>基于vLLM推理引擎加载和启动大模型  
+> ![13.png](https://github.com/solodba/LLMOps/blob/main/day01/images/13.png)  
+>
+> ![14.png](https://github.com/solodba/LLMOps/blob/main/day01/images/14.png)  
+>
+> ![15.png](https://github.com/solodba/LLMOps/blob/main/day01/images/15.png)  
+>
+> ![16.png](https://github.com/solodba/LLMOps/blob/main/day01/images/16.png)  
+>
+> ![17.png](https://github.com/solodba/LLMOps/blob/main/day01/images/17.png)  
+>
+> ![18.png](https://github.com/solodba/LLMOps/blob/main/day01/images/18.png)  
