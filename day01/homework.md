@@ -1,6 +1,4 @@
-#### 一、使用vLLM部署deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
-
-##### 1. 购买服务器
+### 一、使用vLLM部署deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
 > 由于本人电脑显卡显存偏低，所以在AutoDL算力云上购买1台服务器即可。
 > 购买地址: https://autodl.com/home   
 
@@ -45,7 +43,7 @@ root@autodl-container-0e1541aaed-4c54cc69:~#
 这样就可以使用mobaxterm、securecrt等其他登录软件登录了。
 ```
 
-##### 2. conda安装python虚拟环境
+#### 1. conda安装python虚拟环境
 ```
 # 安装python 3.11的虚拟环境vllm, 主要负责运行和管理vllm
 root@autodl-container-0e1541aaed-4c54cc69:~# conda --version
@@ -119,7 +117,7 @@ GPU ：NVIDIA GeForce RTX 3090, 1
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# 
 ```
 
-##### 3. pip安装vllm推理引擎
+#### 2. pip安装vllm推理引擎
 ```
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
 (/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# 
@@ -136,7 +134,7 @@ modelscope                               1.27.1
 vllm                                     0.9.1
 ```
 
-##### 4. 下载并启动deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+#### 3. 下载并启动deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
 >国内通过modelscope(魔搭社区)下载大语言模型文件，网址: https://www.modelscope.cn/my/overview  
 国外通过Hugging Face下载大语言模型文件，网址: https://huggingface.co  
 >  
@@ -222,7 +220,7 @@ Thu Jul  3 14:35:29 2025
 +-----------------------------------------------------------------------------------------+
 ```
 
-##### 5. 安装open-webui
+#### 4. 安装open-webui
 ```
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/open-webui
 (/root/autodl-tmp/open-webui) root@autodl-container-0e1541aaed-4c54cc69:~# pip install open-webui[all]
