@@ -35,5 +35,7 @@ Retype new password:
 passwd: password updated successfully
 root@autodl-container-0e1541aaed-4c54cc69:~# 
 root@autodl-container-0e1541aaed-4c54cc69:~# 
+
+这样就可以使用mobaxterm、securecrt等其他登录软件登录了
 ```
 
