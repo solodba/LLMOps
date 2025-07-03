@@ -25,9 +25,9 @@
 > ![6.png](https://github.com/solodba/LLMOps/blob/main/day01/images/6.png)  
 
 > 修改终端root登录密码:  
-> ![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/7.png)  
-> ![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/8.png)  
- 
+> ![7.png](https://github.com/solodba/LLMOps/blob/main/day01/images/7.png)  
+> ![8.png](https://github.com/solodba/LLMOps/blob/main/day01/images/8.png)  
+
 ```
 和上面图形界面修改一样的密码
 root@autodl-container-0e1541aaed-4c54cc69:~# passwd root
@@ -120,4 +120,8 @@ GPU ：NVIDIA GeForce RTX 3090, 1
 >  
 > 本次实验主要通过国内modelscope(魔搭社区)下载大语言模型文件  
 > 通过魔搭社区网站找到deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大语言模型文件  
-> 
+> ![9.png](https://github.com/solodba/LLMOps/blob/main/day01/images/9.png)  
+> ![10.png](https://github.com/solodba/LLMOps/blob/main/day01/images/10.png)    
+> ![11.png](https://github.com/solodba/LLMOps/blob/main/day01/images/11.png)  
+> ![12.png](https://github.com/solodba/LLMOps/blob/main/day01/images/12.png)  
+
