@@ -1,0 +1,3 @@
+作业：
+    1、部署deepseek-ai/DeepSeek-R1-0528-Qwen3-8B，使用vLLM或SGLang进行部署。
+    2、部署Open-WebUI来对接推理服务上的模型。
