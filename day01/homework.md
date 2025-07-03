@@ -36,6 +36,39 @@ passwd: password updated successfully
 root@autodl-container-0e1541aaed-4c54cc69:~# 
 root@autodl-container-0e1541aaed-4c54cc69:~# 
 
-这样就可以使用mobaxterm、securecrt等其他登录软件登录了
+这样就可以使用mobaxterm、securecrt等其他登录软件登录了。
 ```
 
+##### 2. conda安装python虚拟环境
+```
+# 安装python 3.11的虚拟环境vllm, 主要负责运行和管理vllm
+root@autodl-container-0e1541aaed-4c54cc69:~# conda --version
+conda 22.11.1
+root@autodl-container-0e1541aaed-4c54cc69:~# 
+root@autodl-container-0e1541aaed-4c54cc69:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          30G   54M   30G   1% /
+/dev/nvme1n1    7.0T  3.7T  3.3T  53% /autodl-pub
+AutoFS:fs1      4.0T  1.4T  2.6T  35% /autodl-pub/data
+tmpfs            64M     0   64M   0% /dev
+shm              45G     0   45G   0% /dev/shm
+/dev/sda2       440G   17G  401G   4% /usr/bin/nvidia-smi
+tmpfs           378G   12K  378G   1% /proc/driver/nvidia
+tmpfs           378G  4.0K  378G   1% /etc/nvidia/nvidia-application-profiles-rc.d
+tmpfs           378G     0  378G   0% /proc/asound
+tmpfs           378G     0  378G   0% /proc/acpi
+tmpfs           378G     0  378G   0% /proc/scsi
+tmpfs           378G     0  378G   0% /sys/firmware
+tmpfs           378G     0  378G   0% /sys/devices/virtual/powercap
+root@autodl-container-0e1541aaed-4c54cc69:~# 
+root@autodl-container-0e1541aaed-4c54cc69:~# conda create -p /root/autodl-tmp/vllm python=3.11
+
+# 安装python 3.11的虚拟环境open-webui, 主要负责运行和管理open-webui
+root@autodl-container-0e1541aaed-4c54cc69:~# conda create -p /root/autodl-tmp/open-webui python=3.11
+
+# 查看和确认安装的两个python虚拟环境
+root@autodl-container-0e1541aaed-4c54cc69:~# cd /root/autodl-tmp/
+root@autodl-container-0e1541aaed-4c54cc69:~/autodl-tmp# ls
+open-webui  vllm
+root@autodl-container-0e1541aaed-4c54cc69:~/autodl-tmp# 
+```
