@@ -119,12 +119,28 @@ GPU ：NVIDIA GeForce RTX 3090, 1
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# 
 ```
 
-##### 3. 下载deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+##### 3. pip安装vllm推理引擎
+```
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# 
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list
+Package    Version
+---------- -------
+pip        25.1
+setuptools 78.1.1
+wheel      0.45.1
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip install modelscope vllm
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list | grep modelscope
+modelscope                               1.27.1
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# pip list | grep vllm
+vllm                                     0.9.1
+```
+
+##### 4. 下载并启动deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
 >国内通过modelscope(魔搭社区)下载大语言模型文件，网址: https://www.modelscope.cn/my/overview  
 国外通过Hugging Face下载大语言模型文件，网址: https://huggingface.co  
 >  
-> 本次实验主要通过国内modelscope(魔搭社区)下载大语言模型文件  
-> 通过魔搭社区网站找到deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大语言模型文件  
+> 通过modelscope(魔搭社区)网站找到deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大语言模型文件  
 > ![9.png](https://github.com/solodba/LLMOps/blob/main/day01/images/9.png)  
 > 
 > ![10.png](https://github.com/solodba/LLMOps/blob/main/day01/images/10.png)  
@@ -132,4 +148,53 @@ GPU ：NVIDIA GeForce RTX 3090, 1
 > ![11.png](https://github.com/solodba/LLMOps/blob/main/day01/images/11.png)  
 >  
 > ![12.png](https://github.com/solodba/LLMOps/blob/main/day01/images/12.png)  
+>  
+> 通过命令下载deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大语言模型文件
+```
+# 修改下载文件存放的位置， 默认存放在家目录.cache隐藏文件夹中
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# vim .bashrc
+# /etc/network_turbo文件是AutoDL平台提供的vpn加速下载文件，提供外网下载加速功能
+source /etc/network_turbo
+# 设置Hugging Face下载文件的存放位置，不用创建目录，会自动创建
+export HF_HOME=/root/autodl-tmp/hf_cache
+# 设置modelscope下载文件的存放位置，不用创建目录，会自动创建
+export MODELSCOPE_CACHE=/root/autodl-tmp/ms_cache
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# exec bash
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# conda activate /root/autodl-tmp/vllm
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# VLLM_USE_MODELSCOPE=true vllm serve deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --tensor-parallel-size 1 --max-model-len 32768 --api-key vllm-codehorse --served-model-name vllm-deepseek-1.5 --host 0.0.0.0 --port 8000
 
+# 注释
+--tensor-parallel-size	张量并行组的数量, 和显卡个数有关
+--max-model-len 模型上下文长度，如未指定，会从模型配置自动推导
+--api-key 如果提供，服务器将要求在请求头中提供此密钥
+--served-model-name API中使用的模型名称，可提供多个名称
+--host 主机名
+--port 端口号，默认为 8000
+
+# 可以发现使用max-model-len=32768运行deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大模型报错，如下:
+ERROR 07-03 14:17:08 [core.py:515] EngineCore failed to start.
+ERROR 07-03 14:17:08 [core.py:515] Traceback (most recent call last):
+ERROR 07-03 14:17:08 [core.py:515]   File "/root/autodl-tmp/vllm/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 506, in run_engine_core
+ERROR 07-03 14:17:08 [core.py:515]     engine_core = EngineCoreProc(*args, **kwargs)
+ERROR 07-03 14:17:08 [core.py:515]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 07-03 14:17:08 [core.py:515]   File "/root/autodl-tmp/vllm/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 390, in __init__
+ERROR 07-03 14:17:08 [core.py:515]     super().__init__(vllm_config, executor_class, log_stats,
+ERROR 07-03 14:17:08 [core.py:515]   File "/root/autodl-tmp/vllm/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 83, in __init__
+ERROR 07-03 14:17:08 [core.py:515]     self._initialize_kv_caches(vllm_config)
+ERROR 07-03 14:17:08 [core.py:515]   File "/root/autodl-tmp/vllm/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 145, in _initialize_kv_caches
+ERROR 07-03 14:17:08 [core.py:515]     kv_cache_configs = [
+ERROR 07-03 14:17:08 [core.py:515]                        ^
+ERROR 07-03 14:17:08 [core.py:515]   File "/root/autodl-tmp/vllm/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 146, in <listcomp>
+ERROR 07-03 14:17:08 [core.py:515]     get_kv_cache_config(vllm_config, kv_cache_spec_one_worker,
+ERROR 07-03 14:17:08 [core.py:515]   File "/root/autodl-tmp/vllm/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 940, in get_kv_cache_config
+ERROR 07-03 14:17:08 [core.py:515]     check_enough_kv_cache_memory(vllm_config, kv_cache_spec, available_memory)
+ERROR 07-03 14:17:08 [core.py:515]   File "/root/autodl-tmp/vllm/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 572, in check_enough_kv_cache_memory
+ERROR 07-03 14:17:08 [core.py:515]     raise ValueError(
+ERROR 07-03 14:17:08 [core.py:515] ValueError: To serve at least one request with the models's max seq len (32768), (4.50 GiB KV cache is needed, which is larger than the available KV cache memory (4.47 GiB). Based on the available memory, the estimated maximum model length is 32560. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine.
+
+报错原因：
+当max-model-len设置为32768时，启动起来就需要4.5G的KV缓存，大于可用缓存4.47G了，所以需要把max-model-len调小，程序预测值为32560
+
+# 重新启动大模型
+(/root/autodl-tmp/vllm) root@autodl-container-0e1541aaed-4c54cc69:~# VLLM_USE_MODELSCOPE=true vllm serve deepseek-ai/DeepSeek-R1-0528-Qwen3-8B --tensor-parallel-size 1 --max-model-len 32560 --api-key vllm-codehorse --served-model-name vllm-deepseek-1.5 --host 0.0.0.0 --port 8000
+```
