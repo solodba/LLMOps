@@ -149,7 +149,7 @@ vllm                                     0.9.1
 >  
 > ![12.png](https://github.com/solodba/LLMOps/blob/main/day01/images/12.png)  
 
-> 通过命令下载deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大语言模型文件
+通过命令下载deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大语言模型文件
 ```
 # 修改下载文件存放的位置， 默认存放在家目录.cache隐藏文件夹中
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# vim .bashrc
