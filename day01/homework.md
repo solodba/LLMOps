@@ -16,16 +16,21 @@
 
 > 购买流程：  
 > ![1.png](https://github.com/solodba/LLMOps/blob/main/day01/images/1.png)  
+>  
 > ![2.png](https://github.com/solodba/LLMOps/blob/main/day01/images/2.png)  
+>  
 > ![3.png](https://github.com/solodba/LLMOps/blob/main/day01/images/3.png)  
 
 > 登录终端流程:  
 > ![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/4.png)    
+>  
 > ![5.png](https://github.com/solodba/LLMOps/blob/main/day01/images/5.png)  
+>  
 > ![6.png](https://github.com/solodba/LLMOps/blob/main/day01/images/6.png)  
 
 > 修改终端root登录密码:  
-> ![7.png](https://github.com/solodba/LLMOps/blob/main/day01/images/7.png)  
+> ![7.png](https://github.com/solodba/LLMOps/blob/main/day01/images/7.png) 
+>   
 > ![8.png](https://github.com/solodba/LLMOps/blob/main/day01/images/8.png)  
 
 ```
@@ -121,7 +126,10 @@ GPU ：NVIDIA GeForce RTX 3090, 1
 > 本次实验主要通过国内modelscope(魔搭社区)下载大语言模型文件  
 > 通过魔搭社区网站找到deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大语言模型文件  
 > ![9.png](https://github.com/solodba/LLMOps/blob/main/day01/images/9.png)  
-> ![10.png](https://github.com/solodba/LLMOps/blob/main/day01/images/10.png)    
+> 
+> ![10.png](https://github.com/solodba/LLMOps/blob/main/day01/images/10.png)  
+>   
 > ![11.png](https://github.com/solodba/LLMOps/blob/main/day01/images/11.png)  
+>  
 > ![12.png](https://github.com/solodba/LLMOps/blob/main/day01/images/12.png)  
 
