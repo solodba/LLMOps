@@ -112,3 +112,11 @@ GPU ：NVIDIA GeForce RTX 3090, 1
 3.终端中长期执行命令请使用screen等工具开后台运行，确保程序不受SSH连接中断影响：https://www.autodl.com/docs/daemon/
 (base) root@autodl-container-0e1541aaed-4c54cc69:~# 
 ```
+
+##### 3. 下载deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+>国内通过modelscope(魔搭社区)下载大语言模型文件，网址: https://www.modelscope.cn/my/overview  
+国外通过Hugging Face下载大语言模型文件，网址: https://huggingface.co  
+>  
+> 本次实验主要通过国内modelscope(魔搭社区)下载大语言模型文件  
+> 通过魔搭社区网站找到deepseek-ai/DeepSeek-R1-0528-Qwen3-8B大语言模型文件  
+> 
