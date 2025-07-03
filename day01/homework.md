@@ -15,14 +15,14 @@
 > 系统: ubuntu22.04  
 
 > 购买流程：  
-![1.png](.\images\1.png)  
-![2.png](.\images\2.png)  
-![3.png](.\images\3.png)  
+![1.png](https://github.com/solodba/LLMOps/blob/main/day01/images/1.png)  
+![2.png](https://github.com/solodba/LLMOps/blob/main/day01/images/2.png)  
+![3.png](https://github.com/solodba/LLMOps/blob/main/day01/images/3.png)  
 
 > 登录终端流程:
-![4.png](.\images\4.png)  
-![5.png](.\images\5.png) 
-![6.png](.\images\6.png)
+![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/4.png)  
+![5.png](https://github.com/solodba/LLMOps/blob/main/day01/images/5.png) 
+![6.png](https://github.com/solodba/LLMOps/blob/main/day01/images/6.png)
 
 
 ##### 2. 使用conda安装python虚拟环境
