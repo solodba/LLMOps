@@ -19,10 +19,14 @@
 ![2.png](https://github.com/solodba/LLMOps/blob/main/day01/images/2.png)  
 ![3.png](https://github.com/solodba/LLMOps/blob/main/day01/images/3.png)  
 
-> 登录终端流程:
-![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/4.png)  
-![5.png](https://github.com/solodba/LLMOps/blob/main/day01/images/5.png) 
-![6.png](https://github.com/solodba/LLMOps/blob/main/day01/images/6.png)
+> 登录终端流程:  
+![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/4.png)    
+![5.png](https://github.com/solodba/LLMOps/blob/main/day01/images/5.png)  
+![6.png](https://github.com/solodba/LLMOps/blob/main/day01/images/6.png)  
 
+> 修改终端root登录密码:  
+![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/7.png)  
+![4.png](https://github.com/solodba/LLMOps/blob/main/day01/images/8.png)   
+```
 
-##### 2. 使用conda安装python虚拟环境
+```
