@@ -282,3 +282,16 @@ ssh -CNg -L 6006:127.0.0.1:6006 root@connect.cqa1.seetacloud.com -p 47898
 > ![17.png](https://github.com/solodba/LLMOps/blob/main/day01/images/17.png)  
 >
 > ![18.png](https://github.com/solodba/LLMOps/blob/main/day01/images/18.png)  
+
+>基于SGLang推理引擎加载和启动大模型  
+> ![13.png](https://github.com/solodba/LLMOps/blob/main/day01/images/13.png)  
+>
+> ![14.png](https://github.com/solodba/LLMOps/blob/main/day01/images/14.png)  
+>
+> ![15.png](https://github.com/solodba/LLMOps/blob/main/day01/images/15.png)  
+>
+> ![16.png](https://github.com/solodba/LLMOps/blob/main/day01/images/16.png)  
+>
+> ![17.png](https://github.com/solodba/LLMOps/blob/main/day01/images/17.png)  
+>
+> ![19.png](https://github.com/solodba/LLMOps/blob/main/day01/images/19.png)  
