@@ -71,4 +71,44 @@ root@autodl-container-0e1541aaed-4c54cc69:~# cd /root/autodl-tmp/
 root@autodl-container-0e1541aaed-4c54cc69:~/autodl-tmp# ls
 open-webui  vllm
 root@autodl-container-0e1541aaed-4c54cc69:~/autodl-tmp# 
+
+# conda初始化bash
+root@autodl-container-0e1541aaed-4c54cc69:~# 
+root@autodl-container-0e1541aaed-4c54cc69:~# conda init bash
+no change     /root/miniconda3/condabin/conda
+no change     /root/miniconda3/bin/conda
+no change     /root/miniconda3/bin/conda-env
+no change     /root/miniconda3/bin/activate
+no change     /root/miniconda3/bin/deactivate
+no change     /root/miniconda3/etc/profile.d/conda.sh
+no change     /root/miniconda3/etc/fish/conf.d/conda.fish
+no change     /root/miniconda3/shell/condabin/Conda.psm1
+no change     /root/miniconda3/shell/condabin/conda-hook.ps1
+no change     /root/miniconda3/lib/python3.10/site-packages/xontrib/conda.xsh
+no change     /root/miniconda3/etc/profile.d/conda.csh
+modified      /root/.bashrc
+
+==> For changes to take effect, close and re-open your current shell. <==
+
+root@autodl-container-0e1541aaed-4c54cc69:~# exec bash
++-----------------------------------------------AutoDL-----------------------------------------------------+
+目录说明:
+╔═════════════════╦════════╦════╦═════════════════════════════════════════════════════════════════════════╗
+║目录             ║名称    ║速度║说明                                                                     ║
+╠═════════════════╬════════╬════╬═════════════════════════════════════════════════════════════════════════╣
+║/                ║系 统 盘║一般║实例关机数据不会丢失，可存放代码等。会随保存镜像一起保存。               ║
+║/root/autodl-tmp ║数 据 盘║ 快 ║实例关机数据不会丢失，可存放读写IO要求高的数据。但不会随保存镜像一起保存 ║
+╚═════════════════╩════════╩════╩═════════════════════════════════════════════════════════════════════════╝
+CPU ：14 核心
+内存：90 GB
+GPU ：NVIDIA GeForce RTX 3090, 1
+存储：
+  系 统 盘/               ：2% 422M/30G
+  数 据 盘/root/autodl-tmp：1% 480M/50G
++----------------------------------------------------------------------------------------------------------+
+*注意: 
+1.系统盘较小请将大的数据存放于数据盘或文件存储中，重置系统时数据盘和文件存储中的数据不受影响
+2.清理系统盘请参考：https://www.autodl.com/docs/qa1/
+3.终端中长期执行命令请使用screen等工具开后台运行，确保程序不受SSH连接中断影响：https://www.autodl.com/docs/daemon/
+(base) root@autodl-container-0e1541aaed-4c54cc69:~# 
 ```
