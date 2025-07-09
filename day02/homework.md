@@ -32,3 +32,14 @@ wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" 
 > ![10.png](https://github.com/solodba/LLMOps/blob/main/day02/images/10.png)  
 >   
 > ![11.png](https://github.com/solodba/LLMOps/blob/main/day02/images/11.png)  
+
+#### 3. 配置Miniconda环境变量
+> ![12.png](https://github.com/solodba/LLMOps/blob/main/day02/images/12.png)  
+> 
+> ![13.png](https://github.com/solodba/LLMOps/blob/main/day02/images/13.png)  
+> 
+> ![14.png](https://github.com/solodba/LLMOps/blob/main/day02/images/14.png)  
+> 
+> ![15.png](https://github.com/solodba/LLMOps/blob/main/day02/images/15.png)  
+> 
+
