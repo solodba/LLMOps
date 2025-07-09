@@ -41,8 +41,9 @@ wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" 
 > ![14.png](https://github.com/solodba/LLMOps/blob/main/day02/images/14.png)  
 > 
 > ![15.png](https://github.com/solodba/LLMOps/blob/main/day02/images/15.png)  
-> 
-> 初始化conda环境
+>  
+
+初始化conda环境
 ```
 # 使用win+R快捷键，输入powershell，打开powershell终端
 PS C:\Users\Administrator> conda -V
@@ -82,3 +83,25 @@ no change     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\Lon
 
 ==> For changes to take effect, close and re-open your current shell. <==
 ```
+
+#### 4. 使用conda创建virtual env
+```
+# 使用win+R快捷键，输入powershell，打开powershell终端
+# 查看所有virtual env
+(base) PS C:\Users\Administrator> conda env list
+
+# conda environments:
+#
+base                 * D:\miniconda
+
+# 创建路径D:\venvs\llm的虚拟环境
+(base) PS C:\Users\Administrator> conda create -p 'D:\venvs\llm' python=3.12
+(base) PS C:\Users\Administrator> conda env list
+
+# conda environments:
+#
+base                 * D:\miniconda
+                       D:\venvs\llm
+```
+
+### 部署JupyterLab，可以熟练使用JupyterLab编辑、运行Python程序
