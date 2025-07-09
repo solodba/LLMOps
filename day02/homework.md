@@ -6,4 +6,8 @@
 > ![1.png](https://github.com/solodba/LLMOps/blob/main/day02/images/1.png) 
 >
 > ![2.png](https://github.com/solodba/LLMOps/blob/main/day02/images/2.png)  
-
+```
+# 使用win+R快捷键，输入powershell，打开powershell终端
+# 本次下载安装包路径为D:\
+wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" -outfile "D:\Miniconda3-latest-Windows-x86_64.exe"
+```
