@@ -86,15 +86,15 @@ no change     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\Lon
 
 #### 4. 使用conda创建virtual env
 ```
-# 使用win+R快捷键，输入powershell，打开powershell终端
-# 查看所有virtual env
+## 使用win+R快捷键，输入powershell，打开powershell终端
+## 查看所有virtual env
 (base) PS C:\Users\Administrator> conda env list
 
 # conda environments:
 #
 base                 * D:\miniconda
 
-# 创建路径D:\venvs\llm的虚拟环境
+## 创建路径D:\venvs\llm的虚拟环境
 (base) PS C:\Users\Administrator> conda create -p 'D:\venvs\llm' python=3.12
 (base) PS C:\Users\Administrator> conda env list
 
@@ -105,3 +105,28 @@ base                 * D:\miniconda
 ```
 
 ### 二. 部署JupyterLab，可以熟练使用JupyterLab编辑、运行Python程序
+```
+## 在虚拟路径为D:\venvs\llm的虚拟环境中部署JupyterLab
+(base) PS C:\Users\Administrator> conda env list
+
+# conda environments:
+#
+base                 * D:\miniconda
+                       D:\venvs\llm
+
+(base) PS C:\Users\Administrator> conda activate D:\venvs\llm
+(D:\venvs\llm) PS C:\Users\Administrator>
+(D:\venvs\llm) PS C:\Users\Administrator> conda env list
+
+# conda environments:
+#
+base                   D:\miniconda
+                     * D:\venvs\llm
+
+## 使用conda安装jupyterlab和jupyter
+(D:\venvs\llm) PS C:\Users\Administrator> conda install jupyterlab
+(D:\venvs\llm) PS C:\Users\Administrator> conda install jupyter
+
+## 使用pip安装jupyter中文包
+
+```
