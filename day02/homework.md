@@ -141,3 +141,16 @@ base                   D:\miniconda
 > ![16.png](https://github.com/solodba/LLMOps/blob/main/day02/images/16.png)  
 
 ### 三. 熟悉NumPy的数组创建、复制、矩阵运算和广播机制
+```
+## 使用win+R快捷键，输入powershell，打开powershell终端
+## 使用conda安装numpy
+(base) PS C:\Users\Administrator> conda env list
+
+# conda environments:
+#
+base                 * D:\miniconda
+                       D:\venvs\llm
+
+(base) PS C:\Users\Administrator> conda activate D:\venvs\llm
+(D:\venvs\llm) PS C:\Users\Administrator> conda install numpy
+```
