@@ -1,0 +1,4 @@
+作业： 
+    1、安装部署Miniconda，熟练进行virtual env管理。
+    2、部署JupyterLab，可以熟练使用JupyterLab编辑、运行Python程序。
+    3、熟悉NumPy的数组创建、复制、矩阵运算和广播机制。
