@@ -14,5 +14,9 @@ wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" 
 ```
 
 #### 2. 安装Miniconda
+> 创建安装目录D:\miniconda
 > ![3.png](https://github.com/solodba/LLMOps/blob/main/day02/images/3.png)  
+>   
+> ![4.png](https://github.com/solodba/LLMOps/blob/main/day02/images/4.png)  
 >  
+
