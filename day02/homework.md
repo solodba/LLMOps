@@ -18,5 +18,17 @@ wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" 
 > ![3.png](https://github.com/solodba/LLMOps/blob/main/day02/images/3.png)  
 >   
 > ![4.png](https://github.com/solodba/LLMOps/blob/main/day02/images/4.png)  
->  
-
+>   
+> ![5.png](https://github.com/solodba/LLMOps/blob/main/day02/images/5.png)  
+>   
+> ![6.png](https://github.com/solodba/LLMOps/blob/main/day02/images/6.png)  
+>   
+> ![7.png](https://github.com/solodba/LLMOps/blob/main/day02/images/7.png)  
+>   
+> ![8.png](https://github.com/solodba/LLMOps/blob/main/day02/images/8.png)  
+>   
+> ![9.png](https://github.com/solodba/LLMOps/blob/main/day02/images/9.png)  
+>   
+> ![10.png](https://github.com/solodba/LLMOps/blob/main/day02/images/10.png)  
+>   
+> ![11.png](https://github.com/solodba/LLMOps/blob/main/day02/images/11.png)  
