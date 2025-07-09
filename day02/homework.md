@@ -140,3 +140,4 @@ base                   D:\miniconda
 > 使用jupyterlab  
 > ![16.png](https://github.com/solodba/LLMOps/blob/main/day02/images/16.png)  
 
+### 三. 熟悉NumPy的数组创建、复制、矩阵运算和广播机制
