@@ -106,6 +106,7 @@ base                 * D:\miniconda
 
 ### 二. 部署JupyterLab，可以熟练使用JupyterLab编辑、运行Python程序
 ```
+## 使用win+R快捷键，输入powershell，打开powershell终端
 ## 在虚拟路径为D:\venvs\llm的虚拟环境中部署JupyterLab
 (base) PS C:\Users\Administrator> conda env list
 
@@ -129,4 +130,13 @@ base                   D:\miniconda
 
 ## 使用pip安装jupyter中文包
 (D:\venvs\llm) PS C:\Users\Administrator> pip install jupyterlab-language-pack-zh-CN
+
+## 启动jupyterlab，文件保存在D:\notebook中
+(D:\venvs\llm) PS C:\Users\Administrator> jupyter-lab.exe --ip=0.0.0.0 --notebook-dir='D:\notebook' --allow-root
+
+打开网址http://127.0.0.1:8888/，默认监听端口8888
 ```
+
+> 使用jupyterlab  
+> ![16.png](https://github.com/solodba/LLMOps/blob/main/day02/images/16.png)  
+
