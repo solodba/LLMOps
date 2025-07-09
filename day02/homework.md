@@ -154,3 +154,9 @@ base                 * D:\miniconda
 (base) PS C:\Users\Administrator> conda activate D:\venvs\llm
 (D:\venvs\llm) PS C:\Users\Administrator> conda install numpy
 ```
+
+> 数组的创建和复制
+> ![17.png](https://github.com/solodba/LLMOps/blob/main/day02/images/17.png)   
+> 
+> 矩阵运算和广播机制
+> ![18.png](https://github.com/solodba/LLMOps/blob/main/day02/images/18.png)  
