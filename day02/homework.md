@@ -1,4 +1,4 @@
-### 安装部署Miniconda，熟练进行virtual env管理
+### 一. 安装部署Miniconda，熟练进行virtual env管理
 #### 1. 下载Miniconda安装包
 > 本次Miniconda的安装环境是win10  
 > Miniconda下载地址: https://www.anaconda.com/docs/getting-started/miniconda/install  
@@ -104,4 +104,4 @@ base                 * D:\miniconda
                        D:\venvs\llm
 ```
 
-### 部署JupyterLab，可以熟练使用JupyterLab编辑、运行Python程序
+### 二. 部署JupyterLab，可以熟练使用JupyterLab编辑、运行Python程序
