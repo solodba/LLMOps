@@ -42,4 +42,43 @@ wget "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" 
 > 
 > ![15.png](https://github.com/solodba/LLMOps/blob/main/day02/images/15.png)  
 > 
+> 初始化conda环境
+```
+# 使用win+R快捷键，输入powershell，打开powershell终端
+PS C:\Users\Administrator> conda -V
+conda 25.5.1
 
+PS C:\Users\Administrator> conda init --system --all
+WARNING conda.common.path.windows:_path_to(100): cygpath is not available, fallback to manual path conversion
+WARNING conda.common.path.windows:_path_to(100): cygpath is not available, fallback to manual path conversion
+WARNING conda.common.path.windows:_path_to(100): cygpath is not available, fallback to manual path conversion
+no change     D:\miniconda\Scripts\conda.exe
+no change     D:\miniconda\Scripts\conda-env.exe
+no change     D:\miniconda\Scripts\conda-script.py
+no change     D:\miniconda\Scripts\conda-env-script.py
+no change     D:\miniconda\condabin\conda.bat
+no change     D:\miniconda\Library\bin\conda.bat
+no change     D:\miniconda\condabin\_conda_activate.bat
+no change     D:\miniconda\condabin\rename_tmp.bat
+no change     D:\miniconda\condabin\conda_auto_activate.bat
+no change     D:\miniconda\condabin\conda_hook.bat
+no change     D:\miniconda\Scripts\activate.bat
+no change     D:\miniconda\condabin\activate.bat
+no change     D:\miniconda\condabin\deactivate.bat
+modified      D:\miniconda\Scripts\activate
+modified      D:\miniconda\Scripts\deactivate
+modified      D:\miniconda\etc\profile.d\conda.sh
+modified      D:\miniconda\etc\fish\conf.d\conda.fish
+no change     D:\miniconda\shell\condabin\Conda.psm1
+modified      D:\miniconda\shell\condabin\conda-hook.ps1
+no change     D:\miniconda\Lib\site-packages\xontrib\conda.xsh
+modified      D:\miniconda\etc\profile.d\conda.csh
+modified      /etc/profile.d/conda.sh
+modified      C:\Users\Administrator\.config\fish\config.fish
+modified      C:\ProgramData\xonsh\xonshrc
+modified      C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
+modified      HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\AutoRun
+no change     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled
+
+==> For changes to take effect, close and re-open your current shell. <==
+```
