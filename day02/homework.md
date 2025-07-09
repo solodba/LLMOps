@@ -128,5 +128,5 @@ base                   D:\miniconda
 (D:\venvs\llm) PS C:\Users\Administrator> conda install jupyter
 
 ## 使用pip安装jupyter中文包
-
+(D:\venvs\llm) PS C:\Users\Administrator> pip install jupyterlab-language-pack-zh-CN
 ```
