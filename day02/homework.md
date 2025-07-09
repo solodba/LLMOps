@@ -1,4 +1,5 @@
 ### 安装部署Miniconda，熟练进行virtual env管理
+#### 1. 下载Miniconda安装包
 > 本次Miniconda的安装环境是win10  
 > Miniconda下载地址: https://www.anaconda.com/docs/getting-started/miniconda/install  
 >
